@@ -12,7 +12,7 @@
 <a id="extension-capabilities"></a>
 ## 一、扩展能力（Extension Capabilities）
 
-> 这一部分把 [VS Code API](https://code.visualstudio.com/api/references/vscode-api) 和 [贡献点](https://code.visualstudio.com/api/references/contribution-points) 分成了几个类别，每类都简要介绍了扩展能实现什么。你可以查看 [VS Code API](https://code.visualstudio.com/api/references/vscode-api) 来验证自己的扩展想法是否可行，或者阅读 [扩展能力](../extension-capabilities/overview.md) 一节来寻找新的扩展点子。
+> 这一部分把 [VS Code API](https://code.visualstudio.com/api/references/vscode-api) 和 [贡献点](../references/contribution-points.md) 分成了几个类别，每类都简要介绍了扩展能实现什么。你可以查看 [VS Code API](https://code.visualstudio.com/api/references/vscode-api) 来验证自己的扩展想法是否可行，或者阅读 [扩展能力](../extension-capabilities/overview.md) 一节来寻找新的扩展点子。
 
 **这一节适合什么时候看：** 当你有了一个扩展想法，但不确定 VS Code 是否支持、该用哪个接口时。它按功能分类讲解扩展能做什么，比如：
 
@@ -26,16 +26,16 @@
 <a id="guides--samples"></a>
 ## 二、指南与示例（Guides & Samples）
 
-> 我们有大量可以直接改造使用的示例扩展，其中一些还配有详细讲解源代码的指南。所有示例和指南都可以在 [扩展指南列表](https://code.visualstudio.com/api/extension-guides/overview) 或 [vscode-extension-samples](https://github.com/microsoft/vscode-extension-samples) 仓库中找到。
+> 我们有大量可以直接改造使用的示例扩展，其中一些还配有详细讲解源代码的指南。所有示例和指南都可以在 [扩展指南列表](../extension-guides/overview.md) 或 [vscode-extension-samples](https://github.com/microsoft/vscode-extension-samples) 仓库中找到。
 
 推荐的学习方法：**想做什么功能，就去找对应的示例跑一遍，再改造成自己的。**
 
-例如想做一个侧边栏树形列表，就去示例仓库找 `tree-view-sample`，克隆下来按 `F5` 运行，看看效果，再对照 [树视图指南](https://code.visualstudio.com/api/extension-guides/tree-view) 阅读源码。这比从零开始照着文档写要快得多。
+例如想做一个侧边栏树形列表，就去示例仓库找 `tree-view-sample`，克隆下来按 `F5` 运行，看看效果，再对照 [树视图指南](../extension-guides/tree-view.md) 阅读源码。这比从零开始照着文档写要快得多。
 
 <a id="ux-guidelines"></a>
 ## 三、UX 指南（UX Guidelines）
 
-> 为了让扩展无缝融入 VS Code 的用户界面，请参考 [UX 指南](https://code.visualstudio.com/api/ux-guidelines/overview)，在那里你会学到创建扩展界面的最佳实践，以及遵循 VS Code 推荐工作流的约定。
+> 为了让扩展无缝融入 VS Code 的用户界面，请参考 [UX 指南](../ux-guidelines/overview.md)，在那里你会学到创建扩展界面的最佳实践，以及遵循 VS Code 推荐工作流的约定。
 
 技术上能实现，不代表就应该这么做。UX 指南讲的是“怎样做得像 VS Code 原生功能一样”，例如：
 
@@ -65,7 +65,7 @@
 
 > 要接入问题报告流程，需要贡献一个自定义命令，以及一个 `issue/reporter` 菜单贡献点。这个自定义命令会调用 `openIssueReporter`。
 
-> 下面是 `package.json` 中 `contributes` 里命令和菜单配置的示例（如何添加菜单和命令，请参阅 [贡献点](https://code.visualstudio.com/api/references/contribution-points)）：
+> 下面是 `package.json` 中 `contributes` 里命令和菜单配置的示例（如何添加菜单和命令，请参阅 [贡献点](../references/contribution-points.md)）：
 
 ```json
 "commands": [
@@ -103,7 +103,7 @@ context.subscriptions.push(
 );
 ```
 
-这又是“贡献点声明 + VS Code API 实现”的组合。传给 `openIssueReporter` 的参数可能随版本变化，实际使用时请对照最新的 [内置命令文档](https://code.visualstudio.com/api/references/commands) 确认。
+这又是“贡献点声明 + VS Code API 实现”的组合。传给 `openIssueReporter` 的参数可能随版本变化，实际使用时请对照最新的 [内置命令文档](../references/commands.md) 确认。
 
 > 以前在命令面板中贡献了 `workbench.action.openIssueReporter` 命令的扩展，我们希望它们改用这种新的问题报告流程。
 
@@ -114,9 +114,9 @@ context.subscriptions.push(
 
 > 这一部分包含帮助你开发高质量 VS Code 扩展的主题。例如你可以学习：
 >
-> - 如何为扩展添加 [集成测试](https://code.visualstudio.com/api/working-with-extensions/testing-extension)
-> - 如何把扩展 [发布](https://code.visualstudio.com/api/working-with-extensions/publishing-extension) 到 VS Code [扩展市场](https://marketplace.visualstudio.com/)
-> - 如何为扩展配置 [持续集成](https://code.visualstudio.com/api/working-with-extensions/continuous-integration)
+> - 如何为扩展添加 [集成测试](../working-with-extensions/testing-extension.md)
+> - 如何把扩展 [发布](../working-with-extensions/publishing-extension.md) 到 VS Code [扩展市场](https://marketplace.visualstudio.com/)
+> - 如何为扩展配置 [持续集成](../working-with-extensions/continuous-integration.md)
 
 对应原文中的 “Working with Extensions” 部分，包括测试、打包、发布、持续集成四篇。等扩展功能做得差不多、准备给别人用时再看即可。
 
@@ -130,10 +130,10 @@ context.subscriptions.push(
 |---|---|---|
 | ✅ 入门 | Get Started（本部分） | 已完成 |
 | 1. 了解全貌 | [Extension Capabilities](../extension-capabilities/overview.md)（4 篇） | 马上看，知道扩展能做什么 |
-| 2. 学具体功能 | [Extension Guides](https://code.visualstudio.com/api/extension-guides/overview)（命令、树视图、Webview 等） | 按需挑选，**配合示例代码**学习 |
-| 3. 做得规范 | [UX Guidelines](https://code.visualstudio.com/api/ux-guidelines/overview) | 开始设计界面时 |
-| 4. 语言支持 | [Language Extensions](https://code.visualstudio.com/api/language-extensions/overview) | 想给某种语言做高亮、补全时 |
-| 5. 测试和发布 | [Working with Extensions](https://code.visualstudio.com/api/working-with-extensions/publishing-extension) | 准备发布时 |
+| 2. 学具体功能 | [Extension Guides](../extension-guides/overview.md)（命令、树视图、Webview 等） | 按需挑选，**配合示例代码**学习 |
+| 3. 做得规范 | [UX Guidelines](../ux-guidelines/overview.md) | 开始设计界面时 |
+| 4. 语言支持 | [Language Extensions](../language-extensions/overview.md) | 想给某种语言做高亮、补全时 |
+| 5. 测试和发布 | [Working with Extensions](../working-with-extensions/publishing-extension.md) | 准备发布时 |
 | 随时查阅 | [References](https://code.visualstudio.com/api/references/vscode-api)（API、贡献点、激活事件、when 上下文） | 当字典用，用到时再查 |
 
 **入门部分的核心只有一句话：** 扩展 = `package.json` 里的**声明**（贡献点 + 激活事件）+ 代码里的**实现**（VS Code API）。后面所有章节，都是在这个框架里增加新的贡献点和新的 API。

@@ -65,7 +65,7 @@
 <a id="views-container"></a>
 ## 视图容器（Views Container）
 
-> 通过 [`contributes.viewsContainers`](https://code.visualstudio.com/api/references/contribution-points#contributes.viewsContainers) 贡献点，你可以添加新的视图容器，它们会显示在五个内置视图容器的旁边。详情请参阅 [树视图](https://code.visualstudio.com/api/extension-guides/tree-view) 一节。
+> 通过 [`contributes.viewsContainers`](../references/contribution-points.md#contributes.viewsContainers) 贡献点，你可以添加新的视图容器，它们会显示在五个内置视图容器的旁边。详情请参阅 [树视图](../extension-guides/tree-view.md) 一节。
 
 **视图容器和视图的关系：** 视图容器是“装视图的盒子”，在活动栏上显示为一个图标；点击图标后，侧边栏中会显示这个容器里的所有视图。
 
@@ -98,7 +98,7 @@
 <a id="tree-view"></a>
 ## 树视图（Tree View）
 
-> 通过 [`contributes.views`](https://code.visualstudio.com/api/references/contribution-points#contributes.views) 贡献点，你可以添加新的视图，显示在任意一个视图容器中。详情请参阅 [树视图](https://code.visualstudio.com/api/extension-guides/tree-view) 一节。
+> 通过 [`contributes.views`](../references/contribution-points.md#contributes.views) 贡献点，你可以添加新的视图，显示在任意一个视图容器中。详情请参阅 [树视图](../extension-guides/tree-view.md) 一节。
 
 视图可以放进你自己创建的容器，也可以放进内置的容器（比如资源管理器）：
 
@@ -115,7 +115,7 @@
 }
 ```
 
-这里同样体现了“声明 + 实现”：`package.json` 只声明了“这里有一个叫 Items 的视图”，**树里显示哪些条目**要在代码中实现一个 `TreeDataProvider` 来提供。具体写法在 [树视图指南](https://code.visualstudio.com/api/extension-guides/tree-view) 中详细介绍。
+这里同样体现了“声明 + 实现”：`package.json` 只声明了“这里有一个叫 Items 的视图”，**树里显示哪些条目**要在代码中实现一个 `TreeDataProvider` 来提供。具体写法在 [树视图指南](../extension-guides/tree-view.md) 中详细介绍。
 
 ---
 
@@ -123,7 +123,7 @@
 <a id="webview"></a>
 ## Webview
 
-> Webview 是用 HTML/CSS/JavaScript 构建的、高度可定制的视图。它显示在编辑器组区域中，和文本编辑器并排。详情请阅读 [Webview 指南](https://code.visualstudio.com/api/extension-guides/webview)。
+> Webview 是用 HTML/CSS/JavaScript 构建的、高度可定制的视图。它显示在编辑器组区域中，和文本编辑器并排。详情请阅读 [Webview 指南](../extension-guides/webview.md)。
 
 在 [扩展能力概览](./overview.md) 中讲过：Webview 最灵活，但成本也最高。能用树视图、快速选择等原生部件实现的，优先用原生部件。
 
@@ -158,7 +158,7 @@ context.subscriptions.push(item);
 
 几个要点：
 
-- **`$(rocket)` 这种写法**叫 codicon，是 VS Code 内置的图标集。可用的图标名见 [标签中的图标](https://code.visualstudio.com/api/references/icons-in-labels)。
+- **`$(rocket)` 这种写法**叫 codicon，是 VS Code 内置的图标集。可用的图标名见 [标签中的图标](../references/icons-in-labels.md)。
 - **创建后必须调用 `show()`**，否则不会显示。这是新手常见的“为什么不显示”的原因。
 - **文字可以随时修改**：给 `item.text` 重新赋值，状态栏就会立即更新，常用来显示实时状态。
 - 按 UX 规范，状态栏空间有限，内容要简短，一般只放一个图标加几个字。

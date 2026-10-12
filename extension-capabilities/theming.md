@@ -44,8 +44,8 @@
 > 从图中可以看到，颜色主题既定义了界面部件的颜色，也定义了编辑器中的高亮颜色：
 >
 > - `colors` 映射控制界面部件的颜色。
-> - `tokenColors` 定义编辑器中高亮的颜色和样式。[语法高亮指南](https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide)中有更多这方面的内容。
-> - `semanticTokenColors` 映射以及 `semanticHighlighting` 设置可以增强编辑器中的高亮效果。[语义高亮指南](https://code.visualstudio.com/api/language-extensions/semantic-highlight-guide)介绍了相关的 API。
+> - `tokenColors` 定义编辑器中高亮的颜色和样式。[语法高亮指南](../language-extensions/syntax-highlight-guide.md)中有更多这方面的内容。
+> - `semanticTokenColors` 映射以及 `semanticHighlighting` 设置可以增强编辑器中的高亮效果。[语义高亮指南](../language-extensions/semantic-highlight-guide.md)介绍了相关的 API。
 
 三个字段的分工：
 
@@ -89,9 +89,9 @@
 
 两者是叠加关系：先用语法高亮快速着色，语义分析完成后，再用语义高亮修正和细化。
 
-`colors` 中有几百个可以设置的界面颜色 ID，完整列表见 [主题颜色参考](https://code.visualstudio.com/api/references/theme-color)。
+`colors` 中有几百个可以设置的界面颜色 ID，完整列表见 [主题颜色参考](../references/theme-color.md)。
 
-> 我们有一篇 [颜色主题指南](https://code.visualstudio.com/api/extension-guides/color-theme) 和一个 [颜色主题示例](https://github.com/microsoft/vscode-extension-samples/tree/main/theme-sample)，演示如何创建主题。
+> 我们有一篇 [颜色主题指南](../extension-guides/color-theme.md) 和一个 [颜色主题示例](https://github.com/microsoft/vscode-extension-samples/tree/main/theme-sample)，演示如何创建主题。
 
 **小技巧：** 不知道某个界面区域或某段代码对应哪个颜色 ID、哪个作用域时，可以在命令面板中执行 **Developer: Inspect Editor Tokens and Scopes**，然后点击代码，会显示这个位置的标记类型、作用域和当前使用的颜色。
 
@@ -105,7 +105,7 @@
 > - 建立从唯一的文件图标标识符到图片或字体图标的映射。
 > - 通过文件名或文件的语言类型，把文件关联到这些图标标识符。
 >
-> [文件图标主题指南](https://code.visualstudio.com/api/extension-guides/file-icon-theme)介绍了如何创建文件图标主题。
+> [文件图标主题指南](../extension-guides/file-icon-theme.md)介绍了如何创建文件图标主题。
 
 ![文件图标主题的工作原理：通过 iconDefinitions 定义图标，再通过 fileNames 和 languageIds 把文件关联到图标](images/theming/file-icon-theme.png)
 
@@ -166,7 +166,7 @@
 >
 > 重新定义工作台中使用的所有内置图标。例如筛选操作按钮中的图标和视图图标、状态栏中的图标、断点图标，以及树和编辑器中的折叠图标。
 >
-> [产品图标主题指南](https://code.visualstudio.com/api/extension-guides/product-icon-theme)介绍了如何创建产品图标主题。
+> [产品图标主题指南](../extension-guides/product-icon-theme.md)介绍了如何创建产品图标主题。
 
 **和文件图标主题的区别：**
 

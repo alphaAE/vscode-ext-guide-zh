@@ -3,7 +3,7 @@
 > 原文：[Extension Capabilities Overview](https://code.visualstudio.com/api/extension-capabilities/overview)
 > 源文件：`microsoft/vscode-docs` → `api/extension-capabilities/overview.md`（DateApproved: 10/7/2026）
 
-> VS Code 为扩展提供了很多扩展自身能力的方式。有时候很难找到该用哪个[贡献点](https://code.visualstudio.com/api/references/contribution-points)和 [VS Code API](https://code.visualstudio.com/api/references/vscode-api)。本篇把扩展能力分成几个类别，每个类别会介绍：
+> VS Code 为扩展提供了很多扩展自身能力的方式。有时候很难找到该用哪个[贡献点](../references/contribution-points.md)和 [VS Code API](https://code.visualstudio.com/api/references/vscode-api)。本篇把扩展能力分成几个类别，每个类别会介绍：
 >
 > - 扩展可以使用的一些功能
 > - 指向详细介绍这些功能的文档链接
@@ -28,10 +28,10 @@
 |---|---|---|---|
 | 通用能力 | 几乎所有扩展都会用到的基础功能 | 命令、设置、快捷键、通知、存储 | [通用能力](./common-capabilities.md) |
 | 主题 | 改变 VS Code 的外观 | 颜色主题、文件图标主题 | [主题](./theming.md) |
-| 声明式语言功能 | **不写代码**，只写配置文件，就能支持一种语言的基础编辑功能 | 语法高亮、括号匹配、代码片段 | [语言扩展概览](https://code.visualstudio.com/api/language-extensions/overview#declarative-language-features) |
-| 编程式语言功能 | **写代码**实现的高级语言功能 | 悬停提示、跳转定义、智能提示、错误检查 | [语言扩展概览](https://code.visualstudio.com/api/language-extensions/overview#programmatic-language-features) |
+| 声明式语言功能 | **不写代码**，只写配置文件，就能支持一种语言的基础编辑功能 | 语法高亮、括号匹配、代码片段 | [语言扩展概览](../language-extensions/overview.md#declarative-language-features) |
+| 编程式语言功能 | **写代码**实现的高级语言功能 | 悬停提示、跳转定义、智能提示、错误检查 | [语言扩展概览](../language-extensions/overview.md#programmatic-language-features) |
 | 工作台扩展 | 往 VS Code 的界面上添加新部件 | 侧边栏树视图、状态栏项、Webview | [扩展工作台](./extending-workbench.md) |
-| 调试 | 接入调试器，或者自动化调试流程 | 为某种语言提供调试支持 | [调试器扩展](https://code.visualstudio.com/api/extension-guides/debugger-extension) |
+| 调试 | 接入调试器，或者自动化调试流程 | 为某种语言提供调试支持 | [调试器扩展](../extension-guides/debugger-extension.md) |
 
 ---
 
@@ -72,7 +72,7 @@
 <a id="declarative-language-features"></a>
 ## 声明式语言功能（Declarative Language Features）
 
-> [声明式语言功能](https://code.visualstudio.com/api/language-extensions/overview#declarative-language-features)为一种编程语言添加基础的文本编辑支持，比如括号匹配、自动缩进和语法高亮。这些都是以声明的方式实现的，不需要写任何代码。更高级的语言功能，比如智能提示（IntelliSense）或调试，请参阅[编程式语言功能](#programmatic-language-features)。
+> [声明式语言功能](../language-extensions/overview.md#declarative-language-features)为一种编程语言添加基础的文本编辑支持，比如括号匹配、自动缩进和语法高亮。这些都是以声明的方式实现的，不需要写任何代码。更高级的语言功能，比如智能提示（IntelliSense）或调试，请参阅[编程式语言功能](#programmatic-language-features)。
 >
 > **扩展点子**
 >
@@ -95,7 +95,7 @@
 <a id="programmatic-language-features"></a>
 ## 编程式语言功能（Programmatic Language Features）
 
-> [编程式语言功能](https://code.visualstudio.com/api/language-extensions/overview#programmatic-language-features)提供丰富的编程语言支持，比如悬停提示、跳转到定义、诊断错误、智能提示（IntelliSense）和 CodeLens。这些语言功能通过 [`vscode.languages.*`](https://code.visualstudio.com/api/references/vscode-api#languages) API 提供。扩展既可以直接使用这些 API，也可以编写一个语言服务器（Language Server），再通过 VS Code 的[语言服务器库](https://github.com/microsoft/vscode-languageserver-node)接入 VS Code。
+> [编程式语言功能](../language-extensions/overview.md#programmatic-language-features)提供丰富的编程语言支持，比如悬停提示、跳转到定义、诊断错误、智能提示（IntelliSense）和 CodeLens。这些语言功能通过 [`vscode.languages.*`](https://code.visualstudio.com/api/references/vscode-api#languages) API 提供。扩展既可以直接使用这些 API，也可以编写一个语言服务器（Language Server），再通过 VS Code 的[语言服务器库](https://github.com/microsoft/vscode-languageserver-node)接入 VS Code。
 
 这里列出的功能，在编辑器里分别是这样的：
 
@@ -114,9 +114,9 @@
 | 直接使用 `vscode.languages.*` API | 在扩展代码里注册各种提供者（Provider） | 功能较简单，只给 VS Code 用 |
 | 语言服务器 | 把语言分析逻辑写成一个独立的服务进程，通过语言服务器协议（LSP）与编辑器通信 | 功能复杂、计算量大，或希望同一套实现也能用于其他编辑器 |
 
-语言服务器协议是一个通用标准，很多编辑器都支持。所以写好一个语言服务器后，不只是 VS Code，其他支持 LSP 的编辑器也能使用。后面的 [语言服务器扩展指南](https://code.visualstudio.com/api/language-extensions/language-server-extension-guide) 会详细讲解。
+语言服务器协议是一个通用标准，很多编辑器都支持。所以写好一个语言服务器后，不只是 VS Code，其他支持 LSP 的编辑器也能使用。后面的 [语言服务器扩展指南](../language-extensions/language-server-extension-guide.md) 会详细讲解。
 
-> 虽然我们提供了一份[语言功能列表](https://code.visualstudio.com/api/language-extensions/programmatic-language-features)，并说明了它们的设计用途，但这并不妨碍你创造性地使用这些 API。例如，CodeLens 和悬停提示很适合在代码旁边显示额外信息，而诊断错误也可以用来标出拼写错误或代码风格问题。
+> 虽然我们提供了一份[语言功能列表](../language-extensions/programmatic-language-features.md)，并说明了它们的设计用途，但这并不妨碍你创造性地使用这些 API。例如，CodeLens 和悬停提示很适合在代码旁边显示额外信息，而诊断错误也可以用来标出拼写错误或代码风格问题。
 
 也就是说，这些 API 不一定只能用在“编程语言”上。比如拼写检查扩展就是借用诊断功能，把拼错的单词标上波浪线。
 
@@ -135,7 +135,7 @@
 <a id="workbench-extensions"></a>
 ## 工作台扩展（Workbench Extensions）
 
-> [工作台扩展](./extending-workbench.md)用来扩展 VS Code 的工作台界面。你可以在文件资源管理器中添加新的右键操作，甚至可以使用 VS Code 的 [TreeView](https://code.visualstudio.com/api/extension-guides/tree-view) API 构建一个自定义的资源管理器。如果你的扩展需要完全自定义的用户界面，可以使用 [Webview API](https://code.visualstudio.com/api/extension-guides/webview)，用标准的 HTML、CSS 和 JavaScript 构建自己的文档预览或界面。
+> [工作台扩展](./extending-workbench.md)用来扩展 VS Code 的工作台界面。你可以在文件资源管理器中添加新的右键操作，甚至可以使用 VS Code 的 [TreeView](../extension-guides/tree-view.md) API 构建一个自定义的资源管理器。如果你的扩展需要完全自定义的用户界面，可以使用 [Webview API](../extension-guides/webview.md)，用标准的 HTML、CSS 和 JavaScript 构建自己的文档预览或界面。
 >
 > **扩展点子**
 >
@@ -157,7 +157,7 @@
 <a id="debugging"></a>
 ## 调试（Debugging）
 
-> 你可以编写[调试器扩展](https://code.visualstudio.com/api/extension-guides/debugger-extension)，把 VS Code 的调试界面连接到特定的调试器或运行时，从而利用 VS Code 的[调试](https://code.visualstudio.com/docs/debugtest/debugging)功能。
+> 你可以编写[调试器扩展](../extension-guides/debugger-extension.md)，把 VS Code 的调试界面连接到特定的调试器或运行时，从而利用 VS Code 的[调试](https://code.visualstudio.com/docs/debugtest/debugging)功能。
 >
 > **扩展点子**
 >
@@ -196,7 +196,7 @@ VS Code 调试界面  ←— DAP 协议 —→  调试适配器（扩展提供�
 <a id="ux-guidelines"></a>
 ## UX 指南（UX Guidelines）
 
-> 为了让扩展无缝融入 VS Code 的用户界面，请参考 [UX 指南](https://code.visualstudio.com/api/ux-guidelines/overview)，在那里你会学到创建扩展界面的最佳实践，以及遵循 VS Code 推荐工作流的约定。
+> 为了让扩展无缝融入 VS Code 的用户界面，请参考 [UX 指南](../ux-guidelines/overview.md)，在那里你会学到创建扩展界面的最佳实践，以及遵循 VS Code 推荐工作流的约定。
 
 ---
 
@@ -212,7 +212,7 @@ VS Code 调试界面  ←— DAP 协议 —→  调试适配器（扩展提供�
 
 > 扩展无法访问 VS Code 界面的 DOM。你**不能**编写一个给 VS Code 应用自定义 CSS 的扩展，也不能往 VS Code 界面中添加 HTML 元素。
 >
-> 在 VS Code 团队，我们一直在努力优化对底层 Web 技术的使用，以提供一个随时可用、响应迅速的编辑器。随着这些技术和产品的发展，我们还会继续调整对 DOM 的使用。为了确保扩展不会干扰 VS Code 的稳定性和性能，同时让我们能继续改进 VS Code 的 DOM 而不破坏现有扩展，我们把扩展运行在一个[扩展宿主（Extension Host）](https://code.visualstudio.com/api/advanced-topics/extension-host)进程中，并禁止扩展直接访问 DOM。
+> 在 VS Code 团队，我们一直在努力优化对底层 Web 技术的使用，以提供一个随时可用、响应迅速的编辑器。随着这些技术和产品的发展，我们还会继续调整对 DOM 的使用。为了确保扩展不会干扰 VS Code 的稳定性和性能，同时让我们能继续改进 VS Code 的 DOM 而不破坏现有扩展，我们把扩展运行在一个[扩展宿主（Extension Host）](../advanced-topics/extension-host.md)进程中，并禁止扩展直接访问 DOM。
 
 **背景知识：** VS Code 是用 Electron 开发的，它的界面本质上是一个网页，由 HTML 和 CSS 构成，DOM 就是这个网页的元素结构。
 

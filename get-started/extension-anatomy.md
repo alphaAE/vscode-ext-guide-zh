@@ -142,7 +142,7 @@ vscode.languages.registerHoverProvider(...) // 提供悬停提示
 <a id="extension-manifest"></a>
 ## 四、扩展清单（Extension Manifest）
 
-> 每个 VS Code 扩展都必须有一个 `package.json` 作为[扩展清单](https://code.visualstudio.com/api/references/extension-manifest)。`package.json` 中既有 Node.js 的字段（如 `scripts` 和 `devDependencies`），也有 VS Code 特有的字段（如 `publisher`、`activationEvents` 和 `contributes`）。
+> 每个 VS Code 扩展都必须有一个 `package.json` 作为[扩展清单](../references/extension-manifest.md)。`package.json` 中既有 Node.js 的字段（如 `scripts` 和 `devDependencies`），也有 VS Code 特有的字段（如 `publisher`、`activationEvents` 和 `contributes`）。
 
 也就是说，`package.json` 同时承担两个角色：
 

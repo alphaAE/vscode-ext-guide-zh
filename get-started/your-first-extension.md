@@ -87,7 +87,7 @@ yo code
 | Which package manager to use? | 用哪个包管理器 | `npm`，用 pnpm / yarn 也可以 |
 | Do you want to open... | 生成后是否直接用 VS Code 打开 | 选 `Open with code` |
 
-**关于 bundler：** 打包是指把扩展的所有代码和依赖合并成一个文件，这样加载更快、安装包更小，正式发布时推荐使用。入门阶段不打包更容易看懂项目结构，后面的 [打包扩展](https://code.visualstudio.com/api/working-with-extensions/bundling-extension) 一章会专门讲。
+**关于 bundler：** 打包是指把扩展的所有代码和依赖合并成一个文件，这样加载更快、安装包更小，正式发布时推荐使用。入门阶段不打包更容易看懂项目结构，后面的 [打包扩展](../working-with-extensions/bundling-extension.md) 一章会专门讲。
 
 ---
 
@@ -168,7 +168,7 @@ yo code
 > 你可以试试下面这些练习：
 >
 > - 在命令面板中给 **Hello World** 命令换一个名字。
-> - [贡献（Contribute）](https://code.visualstudio.com/api/references/contribution-points) 另一个命令，用信息提示显示当前时间。贡献点是你在 `package.json`（即[扩展清单](https://code.visualstudio.com/api/references/extension-manifest)）中做的静态声明，用来扩展 VS Code，比如给扩展添加命令、菜单或快捷键。
+> - [贡献（Contribute）](../references/contribution-points.md) 另一个命令，用信息提示显示当前时间。贡献点是你在 `package.json`（即[扩展清单](../references/extension-manifest.md)）中做的静态声明，用来扩展 VS Code，比如给扩展添加命令、菜单或快捷键。
 > - 把 `vscode.window.showInformationMessage` 换成另一个 [VS Code API](https://code.visualstudio.com/api/references/vscode-api) 调用，显示一条警告消息。
 
 这三个练习各有考察的重点，下面给出提示：
@@ -247,7 +247,7 @@ context.subscriptions.push(
 
 > 下一篇 [扩展的结构（Extension Anatomy）](./extension-anatomy.md) 会仔细分析 Hello World 示例的源代码，并解释其中的关键概念。
 
-> 本教程的源代码在：[helloworld-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/helloworld-sample)。[扩展指南](https://code.visualstudio.com/api/extension-guides/overview) 部分还有很多其他示例，每个示例演示一个 VS Code API 或贡献点，并且都遵循 [UX 指南](https://code.visualstudio.com/api/ux-guidelines/overview) 中的建议。
+> 本教程的源代码在：[helloworld-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/helloworld-sample)。[扩展指南](../extension-guides/overview.md) 部分还有很多其他示例，每个示例演示一个 VS Code API 或贡献点，并且都遵循 [UX 指南](../ux-guidelines/overview.md) 中的建议。
 
 [vscode-extension-samples](https://github.com/microsoft/vscode-extension-samples) 是官方示例仓库，里面有几十个完整可运行的扩展。后面学到某个功能时，去找对应的示例来跑一下，效果比只看文档好得多。
 
@@ -261,7 +261,7 @@ context.subscriptions.push(
 <a id="ux-guidelines"></a>
 ### UX 指南（UX Guidelines）
 
-> 现在也是阅读 [UX 指南](https://code.visualstudio.com/api/ux-guidelines/overview) 的好时机，这样你从一开始就能按照 VS Code 的最佳实践来设计扩展的界面。
+> 现在也是阅读 [UX 指南](../ux-guidelines/overview.md) 的好时机，这样你从一开始就能按照 VS Code 的最佳实践来设计扩展的界面。
 
 ---
 

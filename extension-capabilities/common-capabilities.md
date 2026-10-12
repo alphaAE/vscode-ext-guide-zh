@@ -34,9 +34,9 @@
 > 扩展可以：
 >
 > - 使用 [`vscode.commands`](https://code.visualstudio.com/api/references/vscode-api#commands) API 注册和执行命令。
-> - 使用 [`contributes.commands`](https://code.visualstudio.com/api/references/contribution-points#contributes.commands) 贡献点让命令出现在命令面板中。
+> - 使用 [`contributes.commands`](../references/contribution-points.md#contributes.commands) 贡献点让命令出现在命令面板中。
 >
-> 更多内容请参阅 [扩展指南 / 命令](https://code.visualstudio.com/api/extension-guides/command)。
+> 更多内容请参阅 [扩展指南 / 命令](../extension-guides/command.md)。
 
 命令是后面快捷键、菜单的基础：**快捷键和菜单本身不包含逻辑，它们只是“触发某个命令”的入口。** 所以要先有命令，才能给它绑定快捷键、放进菜单。
 
@@ -58,7 +58,7 @@ context.subscriptions.push(
 );
 ```
 
-命令的完整用法（参数、显示条件、启用条件等）见 [命令指南](https://code.visualstudio.com/api/extension-guides/command)。
+命令的完整用法（参数、显示条件、启用条件等）见 [命令指南](../extension-guides/command.md)。
 
 ---
 
@@ -66,7 +66,7 @@ context.subscriptions.push(
 <a id="configuration"></a>
 ## 配置（Configuration）
 
-> 扩展可以通过 [`contributes.configuration`](https://code.visualstudio.com/api/references/contribution-points#contributes.configuration) 贡献点添加扩展专属的设置，并使用 [`workspace.getConfiguration`](https://code.visualstudio.com/api/references/vscode-api#workspace.getConfiguration) API 读取这些设置。
+> 扩展可以通过 [`contributes.configuration`](../references/contribution-points.md#contributes.configuration) 贡献点添加扩展专属的设置，并使用 [`workspace.getConfiguration`](https://code.visualstudio.com/api/references/vscode-api#workspace.getConfiguration) API 读取这些设置。
 
 **第一步：在 `package.json` 中声明设置项。** 声明后，用户就能在“设置”页面中搜到并修改它们：
 
@@ -121,7 +121,7 @@ context.subscriptions.push(
 <a id="keybinding"></a>
 ## 快捷键（Keybinding）
 
-> 扩展可以添加自定义快捷键。详情请阅读 [`contributes.keybindings`](https://code.visualstudio.com/api/references/contribution-points#contributes.keybindings) 和 [键绑定](https://code.visualstudio.com/docs/getstarted/keybindings) 两篇文档。
+> 扩展可以添加自定义快捷键。详情请阅读 [`contributes.keybindings`](../references/contribution-points.md#contributes.keybindings) 和 [键绑定](https://code.visualstudio.com/docs/getstarted/keybindings) 两篇文档。
 
 快捷键只需要在 `package.json` 中声明，不需要写代码：
 
@@ -138,7 +138,7 @@ context.subscriptions.push(
 }
 ```
 
-- `when` 用的是 when 子句，和 [命令指南](https://code.visualstudio.com/api/extension-guides/command) 中控制命令显示的写法一样。不写 `when` 的话，任何时候都生效。
+- `when` 用的是 when 子句，和 [命令指南](../extension-guides/command.md) 中控制命令显示的写法一样。不写 `when` 的话，任何时候都生效。
 - 选择快捷键时，注意不要和 VS Code 内置的快捷键冲突。可以在“键盘快捷方式”面板中搜索按键，看看是否已被占用。
 - 你声明的只是**默认**快捷键，用户随时可以在“键盘快捷方式”面板中修改。
 
@@ -147,7 +147,7 @@ context.subscriptions.push(
 <a id="context-menu"></a>
 ## 上下文菜单（Context Menu）
 
-> 扩展可以注册自定义的上下文菜单项，它们会在 VS Code 界面的不同位置、在用户右键时显示。详情请阅读 [`contributes.menus`](https://code.visualstudio.com/api/references/contribution-points#contributes.menus) 贡献点。
+> 扩展可以注册自定义的上下文菜单项，它们会在 VS Code 界面的不同位置、在用户右键时显示。详情请阅读 [`contributes.menus`](../references/contribution-points.md#contributes.menus) 贡献点。
 
 菜单同样只需在 `package.json` 中声明。关键在于 `menus` 下的**键名决定菜单出现在哪里**：
 
@@ -177,9 +177,9 @@ context.subscriptions.push(
 | `view/item/context` | 树视图条目的右键菜单或行内按钮 |
 | `commandPalette` | 命令面板（用来控制命令是否显示） |
 
-完整的菜单位置列表见 [贡献点参考](https://code.visualstudio.com/api/references/contribution-points#contributes.menus)。
+完整的菜单位置列表见 [贡献点参考](../references/contribution-points.md#contributes.menus)。
 
-从资源管理器的右键菜单触发命令时，处理函数会收到被点击文件的 `Uri` 作为参数，详见 [命令指南](https://code.visualstudio.com/api/extension-guides/command) 中“命令处理函数的参数”一节。
+从资源管理器的右键菜单触发命令时，处理函数会收到被点击文件的 `Uri` 作为参数，详见 [命令指南](../extension-guides/command.md) 中“命令处理函数的参数”一节。
 
 ---
 
