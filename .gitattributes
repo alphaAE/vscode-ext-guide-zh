@@ -4,3 +4,6 @@
 *.jpg filter=lfs diff=lfs merge=lfs -text
 *.png filter=lfs diff=lfs merge=lfs -text
 *.md diff=markdown
+
+# 让 Markdown 计入语言统计（GitHub Linguist / Gitea 的语言比例条）
+*.md linguist-detectable
