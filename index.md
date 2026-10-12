@@ -1,7 +1,7 @@
 # 扩展 API（Extension API）
 
 > 原文：[Extension API](https://code.visualstudio.com/api)
-> 源文件：`microsoft/vscode-docs` → `api/index.md`
+> 源文件：`microsoft/vscode-docs` → `api/index.md`（DateApproved: 10/7/2026）
 
 > VS Code 在设计时就充分考虑了可扩展性。从用户界面到编辑体验，VS Code 的几乎每一个部分都可以通过扩展 API 进行定制和增强。事实上，VS Code 的很多核心功能本身就是以[扩展](https://github.com/microsoft/vscode/tree/main/extensions)的形式构建的，并且使用的是同一套扩展 API。
 

@@ -7,6 +7,7 @@
 - 每个标题前都保留了原文的英文锚点（`<a id="...">`），官方文档中的 `#anchor` 在这里同样可用
 - 文中补充的 API 用法均对照 `@types/vscode` 1.140.0 核实过；原文中发现的错误和过时内容，在正文中就地注明，并汇总在 [原文勘误清单](./errata.md)
 - 编写规则见 [编写规范](./CONVENTIONS.md)，统一译法见 [术语表](./glossary.md)
+- 跟进官方更新的方法、当前对应的上游提交、同步记录见 [维护指南](./MAINTAINING.md)
 - 许可：文档沿用原文的 [CC BY 3.0 US](https://creativecommons.org/licenses/by/3.0/us/) 协议，示例代码与 `tools/` 脚本采用 MIT 协议；原作品版权归 Microsoft Corporation 所有，本仓库为非官方的翻译改编版本。详见 [LICENSE.md](./LICENSE.md)
 
 ## 建议的阅读顺序
@@ -61,6 +62,7 @@
 18. [遥测](./extension-guides/telemetry.md)：尊重用户设置的遥测
 
 <a id="ai"></a>
+<a id="AI"></a>
 #### AI 扩展（AI）
 
 1. [AI 扩展性概览](./extension-guides/ai/ai-extensibility-overview.md)：各种 AI 扩展方式的选择
