@@ -22,38 +22,35 @@
 
 本仓库的目录结构与上游 `api/` 完全一致：上游的 `api/extension-guides/webview.md` 对应本仓库的 `extension-guides/webview.md`，上游的 `api/extension-guides/images/webview/` 对应本仓库的 `extension-guides/images/webview/`。
 
-## 三、准备工作（第一次做时）
+## 三、准备工作（每台电脑第一次做时）
 
-需要 Git、[Git LFS](https://git-lfs.com/) 和 Python 3.8 或更高版本。
+需要 Git、[Git LFS](https://git-lfs.com/) 和 Python 3.8 或更高版本，并能访问 GitHub。
 
-1. 克隆本仓库，并启用 LFS（图片和视频存放在 LFS 中）：
+克隆本仓库，启用 LFS（图片和视频存放在 LFS 中），并设置本仓库的提交身份：
 
-   ```bash
-   git lfs install
-   git clone https://git.alphaae.com/alphaae/vscode-ext-guide-zh.git
-   ```
+```bash
+git lfs install
+git clone https://git.alphaae.com/alphaae/vscode-ext-guide-zh.git
+cd vscode-ext-guide-zh
+git config user.name alphaae
+git config user.email alphaae@foxmail.com
+```
 
-2. 在本仓库旁边克隆上游仓库。上游仓库很大，只需要 `api/` 目录，用稀疏克隆即可：
+**不需要事先克隆上游仓库。** `tools/sync_check.py` 第一次运行时，会在本仓库的 `.upstream/vscode-docs` 下自动创建一个最小克隆（不检出文件，通常几十 MB，该目录已被 `.gitignore` 忽略）；以后每次运行都会自动获取上游最新版本和基准提交本身，因此隔多久同步都可以，也不用关心克隆的历史深度。换电脑、清理过目录都没有关系，重新运行脚本即可。
 
-   ```bash
-   git clone --filter=blob:none --sparse --depth=200 https://github.com/microsoft/vscode-docs.git
-   cd vscode-docs
-   git sparse-checkout set api
-   ```
-
-   如果比较时提示找不到基准提交，说明克隆的历史不够深，执行 `git fetch --deepen=500 origin main` 再试。
+如果你本来就有一个上游克隆，也可以把它的路径作为参数传给脚本，例如 `python tools/sync_check.py ../vscode-docs`。
 
 ## 四、同步步骤
 
-以下命令都在本仓库根目录执行，假设上游仓库克隆在 `../vscode-docs`。
+以下命令都在本仓库根目录执行。
 
 ### 1. 列出需要处理的文件
 
 ```bash
-python tools/sync_check.py ../vscode-docs --fetch
+python tools/sync_check.py
 ```
 
-脚本会自动读取本文中的基准提交，获取上游最新版本，并列出 `api/` 下所有变化的文件：
+脚本会自动读取本文中的基准提交，准备好上游仓库并获取最新版本，然后列出 `api/` 下所有变化的文件：
 
 - **文档变化**：`[修改]`、`[新增]`、`[删除]`、`[重命名]` 的 `.md` 文件，已换算成本仓库中的路径；
 - 标注“仅文件头元数据变化”的文件，只是 `DateApproved` 等元数据变了，正文没变，只需更新译文的文件头；
@@ -64,10 +61,10 @@ python tools/sync_check.py ../vscode-docs --fetch
 ### 2. 查看每一篇的具体改动
 
 ```bash
-git -C ../vscode-docs diff <基准提交前 7 位> <目标提交前 7 位> -- api/extension-guides/webview.md
+git -C .upstream/vscode-docs diff <基准提交前 7 位> <目标提交前 7 位> -- api/extension-guides/webview.md
 ```
 
-脚本输出的最后几行会给出带好提交号的命令。
+脚本输出的最后几行会给出带好提交号的命令。新增的篇目需要完整阅读原文时，可以用 `python tools/upstream_get.py api/<路径>.md` 把原文取到 `.upstream/files/` 下（不会覆盖译文）。
 
 ### 3. 按变化类型修改译文
 
@@ -78,7 +75,7 @@ git -C ../vscode-docs diff <基准提交前 7 位> <目标提交前 7 位> -- ap
 | 新增 | 按 [编写规范](./CONVENTIONS.md) 新译一篇，复制对应的 `images/` 目录，在 [README](./README.md) 目录中加入 |
 | 删除 | 删除译文和不再使用的图片，从 README 中移除，查找并修改指向它的链接 |
 | 重命名 / 移动 | 移动译文文件和图片，修改所有指向它的链接 |
-| 图片变化 | 把上游 `api/` 下对应的图片、视频复制到本仓库的相同位置 |
+| 图片变化 | 用 `python tools/upstream_get.py <图片路径> ...` 把上游的新图片、视频取到本仓库的相同位置（会自动处理上游的 LFS 存储）；上游删除的图片在本仓库中也删除 |
 
 修改时同时检查本仓库自己写的内容是否过时：
 
@@ -109,7 +106,7 @@ python tools/check.py        # 校验所有本地链接、锚点和图片路径
 
 | 事项 | 说明 |
 |---|---|
-| 提交身份 | 本仓库单独配置了 `user.name = alphaae`、`user.email = alphaae@foxmail.com`（仓库级配置，新克隆后需要重新设置：`git config user.name alphaae`、`git config user.email alphaae@foxmail.com`） |
+| 提交身份 | 本仓库使用仓库级配置 `user.name = alphaae`、`user.email = alphaae@foxmail.com`，每次新克隆后都要重新设置（见第三节） |
 | 图片和视频 | `*.png`、`*.gif`、`*.jpg`、`*.mp4` 走 Git LFS（规则在 `.gitattributes` 中，与上游一致），新增的图片会自动按 LFS 处理 |
 | 推送大小限制 | 服务器限制单次推送的请求大小（超过会返回 HTTP 413）。大文件必须走 LFS，不要把图片、视频直接存进 git |
 | 换行符 | `.gitattributes` 规定文本文件统一以 LF 存储，Windows 上工作区显示 CRLF 属于正常现象 |
@@ -120,7 +117,8 @@ python tools/check.py        # 校验所有本地链接、锚点和图片路径
 
 | 脚本 | 作用 |
 |---|---|
-| `tools/sync_check.py` | 列出上游自基准提交以来的变化，对应到本仓库路径，并识别“仅元数据变化”的文件 |
+| `tools/sync_check.py` | 自动准备上游仓库，列出上游自基准提交以来的变化，对应到本仓库路径，并识别“仅元数据变化”的文件 |
+| `tools/upstream_get.py` | 从上游取出指定文件：图片和视频写入本仓库对应位置（自动处理 LFS），`.md` 原文写入 `.upstream/files/` 供对照 |
 | `tools/anchors.py` | 根据标题中括号里的英文原文，在标题前插入原文的英文锚点；`--dry` 只检查不修改 |
 | `tools/clean.py` | 删除脚本误生成的非 ASCII 锚点（例如由“本篇小结”生成的锚点） |
 | `tools/check.py` | 校验所有本地链接、锚点和图片是否存在 |

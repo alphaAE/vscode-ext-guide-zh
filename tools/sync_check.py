@@ -1,10 +1,12 @@
 """列出上游 vscode-docs 的 api/ 目录自上次同步以来的变化，并对应到本仓库的译文文件。
 
-用法（在本仓库根目录运行）：
-    python tools/sync_check.py <vscode-docs 克隆目录> [--fetch] [--to <提交号或分支>]
+用法（在任意目录运行）：
+    python tools/sync_check.py [上游克隆目录] [--to <提交号或分支>]
 
 - 上次同步的基准提交号从 MAINTAINING.md 中“上游基准提交”一行读取；
-- --fetch：先在 vscode-docs 克隆中执行 git fetch origin main；
+- 上游克隆目录可省略，默认使用本仓库下的 .upstream/vscode-docs（已在 .gitignore 中忽略）；
+  目录不存在时会自动创建一个最小克隆（不检出文件，只按需下载比较所需的数据，通常几十 MB）；
+- 每次运行都会自动获取上游最新的 main，以及基准提交本身，因此不需要关心克隆的历史深度；
 - --to：比较的目标版本，默认 origin/main。
 """
 import os
@@ -45,14 +47,26 @@ def main():
     if not sys.stdout.isatty():
         sys.stdout.reconfigure(encoding='utf-8')  # 输出到管道 / Git Bash 时用 UTF-8，避免中文乱码
     args = sys.argv[1:]
-    if not args or args[0].startswith('-'):
+    if '-h' in args or '--help' in args:
         sys.exit(__doc__)
-    repo = args[0]
+    pos = [a for i, a in enumerate(args) if not a.startswith('-') and (i == 0 or args[i - 1] != '--to')]
+    repo = pos[0] if pos else os.path.join(ROOT, '.upstream', 'vscode-docs')
     target = args[args.index('--to') + 1] if '--to' in args else 'origin/main'
-    if '--fetch' in args:
-        git(repo, 'fetch', 'origin', 'main')
+    if not os.path.isdir(os.path.join(repo, '.git')):
+        print(f'未找到上游克隆，正在创建最小克隆：{repo}')
+        r = subprocess.run(['git', 'clone', '-q', '--filter=blob:none', '--no-checkout', '--depth=1',
+                            'https://github.com/microsoft/vscode-docs.git', repo])
+        if r.returncode:
+            sys.exit('克隆上游仓库失败，请检查网络')
+    git(repo, 'fetch', '-q', '--depth=1', 'origin', 'main')
     base = read_baseline()
-    head = git(repo, 'rev-parse', target).strip()
+    # 基准提交可能不在本地（克隆较浅或刚创建），直接按提交号获取
+    if subprocess.run(['git', '-C', repo, 'cat-file', '-e', base + '^{commit}'], capture_output=True).returncode:
+        git(repo, 'fetch', '-q', '--depth=1', 'origin', base)
+    if target != 'origin/main' and subprocess.run(['git', '-C', repo, 'rev-parse', '-q', '--verify', target + '^{commit}'],
+                                                  capture_output=True).returncode:
+        git(repo, 'fetch', '-q', '--depth=1', 'origin', target)
+    head = git(repo, 'rev-parse', target + '^{commit}').strip()
     print(f'基准提交：{base}')
     print(f'目标提交：{head}  {git(repo, "log", "-1", "--format=%ci %s", head).strip()}')
     out = git(repo, 'diff', '--name-status', '-M', base, head, '--', 'api/')
