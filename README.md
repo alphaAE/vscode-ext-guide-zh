@@ -28,7 +28,7 @@
 
 1. [你的第一个扩展](./get-started/your-first-extension.md)：生成、运行、修改、调试 Hello World
 2. [扩展的结构](./get-started/extension-anatomy.md)：激活事件、贡献点、VS Code API 三大核心概念
-3. [总结与后续学习路线](./get-started/wrapping-up.md)：后续章节地图、接入问题报告流程
+3. [总结](./get-started/wrapping-up.md)：后续章节地图与学习路线、接入问题报告流程
 
 <a id="extension-capabilities"></a>
 ### 扩展能力（Extension Capabilities）

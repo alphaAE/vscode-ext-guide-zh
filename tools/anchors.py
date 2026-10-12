@@ -17,7 +17,9 @@ def english_of(h):
 
 def canonical(t):
     if ' ' not in t.strip():
-        return t.strip()
+        w = t.strip()
+        # 普通单词（如 Overview）按官网的规则转小写；标识符（如 onCommand、contributes.commands）保持原样
+        return w.lower() if re.fullmatch(r'[A-Z][a-z]+', w) else w
     s = t.strip().lower()
     s = re.sub(r'[^a-z0-9 \-]', '', s)
     return re.sub(r' ', '-', s)

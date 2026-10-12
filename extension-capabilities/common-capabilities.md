@@ -63,7 +63,6 @@ context.subscriptions.push(
 ---
 
 <a id="configuration"></a>
-<a id="configuration"></a>
 ## 配置（Configuration）
 
 > 扩展可以通过 [`contributes.configuration`](../references/contribution-points.md#contributes.configuration) 贡献点添加扩展专属的设置，并使用 [`workspace.getConfiguration`](https://code.visualstudio.com/api/references/vscode-api#workspace.getConfiguration) API 读取这些设置。
@@ -117,7 +116,6 @@ context.subscriptions.push(
 
 ---
 
-<a id="keybinding"></a>
 <a id="keybinding"></a>
 ## 快捷键（Keybinding）
 

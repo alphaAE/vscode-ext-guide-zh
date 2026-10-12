@@ -572,7 +572,6 @@ class PawDrawEditorProvider implements vscode.CustomEditorProvider<PawDrawDocume
 其中 `Stroke`、`addStroke` 等是示意用的自定义类型和方法，需要你根据自己的文档结构来实现。
 
 <a id="saving"></a>
-<a id="saving"></a>
 ### 保存（Saving）
 
 > 当用户保存一个自定义编辑器时，扩展要负责把资源的当前状态写入磁盘。具体怎么做，很大程度上取决于扩展的 `CustomDocument` 类型，以及扩展在内部是如何跟踪编辑的。

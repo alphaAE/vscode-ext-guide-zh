@@ -291,7 +291,6 @@ function getWebviewContent(cat: keyof typeof cats) {
 - 设置 `html` 只适合用来初始化页面，或者确实需要整体重新渲染的情况。
 
 <a id="lifecycle"></a>
-<a id="lifecycle"></a>
 ### 生命周期（Lifecycle）
 
 > Webview 面板归创建它的扩展所有。扩展必须保存好 `createWebviewPanel` 返回的 Webview。如果扩展丢失了这个引用，就再也无法重新获取这个 Webview 了，尽管它仍然会继续显示在 VS Code 中。
@@ -1207,7 +1206,6 @@ module.exports = {
 ---
 
 <a id="security"></a>
-<a id="security"></a>
 ## 安全（Security）
 
 > 和任何网页一样，创建 Webview 时，必须遵循一些基本的安全最佳实践。
@@ -1352,7 +1350,6 @@ panel.webview.html = `...<h1>${escapeHtml(fileName)}</h1>...`;
 
 ---
 
-<a id="persistence"></a>
 <a id="persistence"></a>
 ## 持久化（Persistence）
 

@@ -51,7 +51,7 @@
 | **高级主题**（Advanced Topics） | 解释一些高级概念，比如[扩展宿主](./advanced-topics/extension-host.md)、[支持远程开发和 GitHub Codespaces](./advanced-topics/remote-extensions.md)，以及[提议 API](./advanced-topics/using-proposed-api.md)。 | [扩展宿主](./advanced-topics/extension-host.md) |
 | **参考**（References） | 包含 [VS Code API](https://code.visualstudio.com/api/references/vscode-api)、[贡献点](./references/contribution-points.md)以及许多其他主题的详尽参考。 | [贡献点](./references/contribution-points.md) |
 
-推荐的学习路线见 [总结与后续学习路线](./get-started/wrapping-up.md)，完整的目录见 [README](./README.md)。
+推荐的学习路线见 [总结](./get-started/wrapping-up.md) 末尾的小结，完整的目录见 [README](./README.md)。
 
 ---
 

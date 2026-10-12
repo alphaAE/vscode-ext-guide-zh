@@ -10,7 +10,6 @@
 ---
 
 <a id="fields"></a>
-<a id="fields"></a>
 ## 字段（Fields）
 
 | 名称 | 必填 | 类型 | 详细说明 |

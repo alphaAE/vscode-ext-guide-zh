@@ -135,7 +135,6 @@ def did_save(params: lsp.DidSaveTextDocumentParams):
 ---
 
 <a id="examples"></a>
-<a id="examples"></a>
 ## 示例（Examples）
 
 > 有几个用这个模板创建的示例实现：

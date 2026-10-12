@@ -161,7 +161,6 @@ export interface SourceControlResourceState {
 `originalUri` 指向文件的原始版本，通常是一个[虚拟文档](./virtual-documents.md)的 URI（见本篇最后的“快速差异”一节）。
 
 <a id="menus"></a>
-<a id="menus"></a>
 ### 菜单（Menus）
 
 > 源代码管理有六个菜单 ID，你可以在其中放置菜单项，为用户提供更丰富的用户界面。

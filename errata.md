@@ -33,7 +33,7 @@
 | 篇目 | 类型 | 问题 |
 |---|---|---|
 | [通知](./ux-guidelines/notifications.md) | 内容错误 | 模态通知的图片说明与截图内容不符 |
-| [总结与后续学习路线](./get-started/wrapping-up.md) | 代码错误 | 示例 `menus` 的缩进 / 层级有误 |
+| [总结](./get-started/wrapping-up.md) | 格式问题 | 示例中 `menus` 多缩进了一层，看起来像是 `commands` 的下级（JSON 不看缩进，配置本身有效） |
 | [语言扩展概览](./language-extensions/overview.md) | 内容错误 | “多根工作区支持”一节说“这个主题讨论了……”，但缺少链接 |
 
 ## 语言扩展

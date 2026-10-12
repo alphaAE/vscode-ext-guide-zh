@@ -343,7 +343,6 @@ module.exports = config;
 ---
 
 <a id="tests"></a>
-<a id="tests"></a>
 ## 测试（Tests）
 
 > 扩展作者经常为扩展的源代码编写单元测试。在架构分层正确的情况下（扩展的源代码不依赖测试），webpack 和 esbuild 生成的包中不应该包含任何测试代码。要运行单元测试，只需要一次简单的编译。
@@ -390,7 +389,6 @@ module.exports = config;
 
 ---
 
-<a id="publishing"></a>
 <a id="publishing"></a>
 ## 发布（Publishing）
 

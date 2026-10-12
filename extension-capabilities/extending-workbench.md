@@ -120,7 +120,6 @@
 ---
 
 <a id="webview"></a>
-<a id="webview"></a>
 ## Webview
 
 > Webview 是用 HTML/CSS/JavaScript 构建的、高度可定制的视图。它显示在编辑器组区域中，和文本编辑器并排。详情请阅读 [Webview 指南](../extension-guides/webview.md)。

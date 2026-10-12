@@ -151,7 +151,6 @@ noIndent: false（默认）        noIndent: true
 ---
 
 <a id="autoclosing"></a>
-<a id="autoclosing"></a>
 ## 自动闭合（Autoclosing）
 
 > 当你输入 `'` 时，VS Code 会创建一对单引号，并把光标放在中间：`'|'`。这一部分定义了这样的配对。
@@ -220,7 +219,6 @@ const Component = () =>
 ---
 
 <a id="autosurrounding"></a>
-<a id="autosurrounding"></a>
 ## 自动包围（Autosurrounding）
 
 > 当你在 VS Code 中选中一个范围并输入一个左括号时，VS Code 会用一对括号把选中的内容包围起来。这个功能叫作自动包围，在这里你可以为特定的语言定义自动包围的配对：
@@ -244,7 +242,6 @@ const Component = () =>
 
 ---
 
-<a id="folding"></a>
 <a id="folding"></a>
 ## 折叠（Folding）
 

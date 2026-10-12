@@ -582,7 +582,6 @@ code-insiders --install-extension my-extension-0.0.1.vsix
 > 你可以通过验证一个与你的品牌或身份关联的[符合条件的域名](#eligible-domains)的所有权，成为一个**认证发布者（verified publisher）**。一旦你的发布者通过了认证，市场就会在你的扩展详情中添加一个认证徽章。
 
 <a id="prerequisites"></a>
-<a id="prerequisites"></a>
 #### 前提条件（Prerequisites）
 
 > 要通过认证，一个发布者必须在 VS 市场上拥有一个或多个扩展至少 6 个月，并且域名的注册时间也必须至少有 6 个月。请等到满足这些条件之后再申请认证。
@@ -789,7 +788,6 @@ vsce publish --pre-release
 
 用于在 `web` 平台上隐藏不支持的功能的 `when` 子句，可以使用 `isWeb` 上下文键，例如 `"when": "!isWeb"`。
 
-<a id="publishing"></a>
 <a id="publishing"></a>
 #### 发布（Publishing）
 

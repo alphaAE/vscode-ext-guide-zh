@@ -27,7 +27,6 @@
 ---
 
 <a id="tokenization"></a>
-<a id="tokenization"></a>
 ## 分词（Tokenization）
 
 > 文本的分词，就是把文本拆分成一个个片段，并给每个片段分配一个标记类型。
@@ -464,7 +463,6 @@ $ npx js-yaml syntaxes/abc.tmLanguage.yaml > syntaxes/abc.tmLanguage.json
 
 ---
 
-<a id="theming"></a>
 <a id="theming"></a>
 ## 主题化（Theming）
 

@@ -238,7 +238,6 @@ vscode.languages.registerDocumentSemanticTokensProvider(selector, provider, lege
 ---
 
 <a id="theming"></a>
-<a id="theming"></a>
 ## 主题化（Theming）
 
 > 主题化就是为标记分配颜色和样式。主题规则在颜色主题文件（JSON 格式）中指定。用户也可以在用户设置中定制主题规则。
